@@ -462,10 +462,12 @@ renderCUDA(
 	float accum_rec_depth = 0.0f;
 	float dL_dpixel[C];
 	float dL_dpixel_depth = 0.0f;
-	if (inside)
+	if (inside){
 		for (int i = 0; i < C; i++)
 			dL_dpixel[i] = dL_dpixels[i * H * W + pix_id];
 		dL_dpixel_depth = dL_dpixels_depth[pix_id];
+	}
+		
 	float last_alpha = 0;
 	float last_color[C] = { 0 };
 	float last_depth = 0.0f;
